@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Binary Tree · Zane{% endblock %}
+{% block content %}
+<h1>Binary Tree</h1>
+
+<!-- Form to process Binary Tree actions -->
+<form method="post" class="stack queue-form">
+  <label class="queue-label">Node Value / Key
+    <input type="text" name="value" placeholder="Enter value (e.g., 50)" autocomplete="off">
+  </label>
+  <div class="button-group">
+    <button class="btn" type="submit" name="action" value="insert">Insert</button>
+    <button class="btn" type="submit" name="action" value="search">Search</button>
+    <button class="btn btn-danger" type="submit" name="action" value="delete">Delete</button>
+    <button class="btn" type="submit" name="action" value="traverse">Post-Order</button>
+  </div>
+</form>
+
+{% if message %}
+  <p class="queue-message">{{ message }}</p>
+{% endif %}
+
+<!-- Binary Tree Visual Display / Traversal Results -->
+<div class="card holo queue-card">
+  <h3>Current Traversal / Tree State:</h3>
+  
+  <div class="queue-display-box">
+    {% if traversal_items %}
+      {% for item in traversal_items %}
+        <div class="queue-node">
+          {{ item }}
+        </div>
+      {% endfor %}
+    {% else %}
+      <span class="queue-empty">Tree traversal is currently empty</span>
+    {% endif %}
+  </div>
+</div>
+
+<p class="back-link"><a href="{{ url_for('main.works') }}">← Back to Works</a></p>
+{% endblock %}

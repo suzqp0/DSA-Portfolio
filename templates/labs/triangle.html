@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Area of Triangle · Zane{% endblock %}
+{% block content %}
+<h1>Area of Triangle</h1>
+<p class="lead">Compute ½ · base · height.</p>
+
+<form method="post" class="stack">
+  <label>Base (b)
+    <input type="number" step="any" name="base" placeholder="e.g., 5" required>
+  </label>
+  <label>Height (h)
+    <input type="number" step="any" name="height" placeholder="e.g., 3.2" required>
+  </label>
+  <button class="btn" type="submit">Compute</button>
+</form>
+
+{% if result is not none %}
+  <div class="card holo" style="margin-top:1rem;">
+    <h3>Result</h3>
+    <p>{{ result }}</p>
+  </div>
+{% endif %}
+
+{% if error %}
+  <div class="card holo error" style="margin-top:1rem;">
+    <h3>Error</h3>
+    <p>{{ error }}</p>
+  </div>
+{% endif %}
+
+<p style="margin-top:1rem;"><a href="{{ url_for('main.works') }}">← Back to Works</a></p>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}To Upper Case · Zane{% endblock %}
+{% block content %}
+<h1>To Upper Case Converter</h1>
+<p class="lead">Enter any text below to convert it to uppercase.</p>
+
+<form method="post" class="stack">
+  <label>Enter text
+    <input type="text" name="inputString" placeholder="Type something..." required>
+  </label>
+  <button class="btn" type="submit">Convert</button>
+</form>
+
+{% if result is not none %}
+  <div class="card holo" style="margin-top:1rem;">
+    <h3>Result</h3>
+    <p>{{ result }}</p>
+  </div>
+{% endif %}
+
+<p style="margin-top:1rem;"><a href="{{ url_for('main.works') }}">← Back to Works</a></p>
+{% endblock %}

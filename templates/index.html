@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Home · Zane{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <h1>Hi, I'm <span class="accent">Suzanne Sharrie!</span></h1>
+    <p class="lead">I like building solutions to everyday problems.</p>
+    <div class="cta-row">
+      <a class="btn" href="{{ url_for('main.profile') }}">View Profile</a>
+      <a class="btn-outline" href="{{ url_for('main.works') }}">Tools</a>
+    </div>
+  </div>
+  <div class="hero-media">
+    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Banner" />
+  </div>
+</section>
+{% endblock %}

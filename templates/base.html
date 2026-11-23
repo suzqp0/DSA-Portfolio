@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}AmaZANE!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="{{ url_for('main.home') }}">
+          AmaZANE!
+        </a>
+        <nav>
+          <a href="{{ url_for('main.home') }}" class="{% if request.path=='/' %}active{% endif %}">Home</a>
+          <a href="{{ url_for('main.profile') }}" class="{% if '/profile' in request.path %}active{% endif %}">Profile</a>
+          <a href="{{ url_for('main.contacts') }}" class="{% if '/contact' in request.path %}active{% endif %}">Contact</a>
+          <a href="{{ url_for('main.works') }}" class="{% if '/works' in request.path %}active{% endif %}">Works</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>&copy; 2026 Suzanne Sharrie N. Luzano</small>
+      </div>
+    </footer>
+  </body>
+</html>

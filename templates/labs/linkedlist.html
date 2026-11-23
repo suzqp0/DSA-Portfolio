@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Linked List Visualizer · Zane{% endblock %}
+{% block content %}
+<h1>Linked List Visualizer</h1>
+<p class="lead">Manage nodes dynamically using append, prepend, and delete operations.</p>
+
+<!-- Control Form -->
+<form method="post" class="stack card holo">
+  <h3>List Operations</h3>
+  
+  <label>Node Value
+    <input type="text" name="value" placeholder="e.g., 42 or Apple">
+  </label>
+
+  <div class="cta-row">
+    <button class="btn" type="submit" name="action" value="append">Append</button>
+    <button class="btn" type="submit" name="action" value="prepend">Prepend</button>
+    <button class="btn-outline" type="submit" name="action" value="delete">Delete Value</button>
+    <button class="btn-outline" type="submit" name="action" value="clear" style="color: #b33939; border-color: #b33939;">Clear List</button>
+  </div>
+</form>
+
+<!-- Visualized Linked List Display -->
+<div class="card" style="margin-top:1.5rem;">
+  <h3>Visual Representation</h3>
+  <div class="ll-container">
+    {% if ll %}
+      {% for item in ll %}
+        <div class="ll-node-wrapper">
+          <div class="ll-node">
+            <div class="ll-value">{{ item }}</div>
+            <div class="ll-pointer">next</div>
+          </div>
+          {% if not loop.last %}
+            <span class="ll-arrow">→</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <span class="ll-arrow">→</span>
+      <div class="ll-null">NULL</div>
+    {% else %}
+      <p class="lead" style="margin: 0; padding: 0.5rem;">List is currently empty (`HEAD` → `NULL`)</p>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Success / Action Message -->
+{% if message is not none and message %}
+  <div class="card holo" style="margin-top:1rem;">
+    <h3>Status</h3>
+    <p>{{ message }}</p>
+  </div>
+{% endif %}
+
+<!-- Error Message -->
+{% if error %}
+  <div class="card holo error" style="margin-top:1rem; border-color: #b33939;">
+    <h3 style="color: #b33939;">Error</h3>
+    <p>{{ error }}</p>
+  </div>
+{% endif %}
+
+<p style="margin-top:1.5rem;"><a href="{{ url_for('main.works') }}">← Back to Works</a></p>
+{% endblock %}

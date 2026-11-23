@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Profile - AmaZANE!{% endblock %}
+
+{% block content %}
+<section class="container">
+  <div class="profile-header">
+    <div class="avatar-wrap">
+      <img src="{{ url_for('static', filename='images/mypic.png') }}" alt="Suzanne Sharrie N. Luzano" class="avatar" />
+    </div>
+
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p class="lead">
+        I’m a Junior Computer Engineering student at the <strong>Polytechnic University of the Philippines – Sta. Mesa</strong>. I enjoy taking up new experiences and exploring different activities. I’m currently focused on improving problem-solving, hardware code practices, and joining different organizations while serving as a Student Assistant at the CPE Department.
+      </p>
+    </div>
+  </div>
+
+<div class="stack">
+    <!-- Card 1: Personal Info -->
+    <div class="card">
+      <h3>Personal Info</h3>
+      <ul class="list">
+        <li><strong>Name:</strong> Suzanne Sharrie N. Luzano</li>
+        <li><strong>Course / Section:</strong> Bachelor of Science in Computer Engineering, 3-6</li>
+        <li><strong>Province:</strong> Region 4A - Calabarzon, Infanta Quezon</li>
+        <li><strong>School:</strong> PUP – Sta. Mesa</li>
+      </ul>
+    </div>
+
+    <!-- Card 2: Skills -->
+    <div class="card">
+      <h3>Skills</h3>
+      <ul class="tags">
+        <li>Python</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>HDL</li>
+        <li>Verilog</li>
+        <li>Electronics Fundamentals</li>
+        <li>Figma</li>
+        <li>Canva</li>
+        <li>Administrative</li>
+        <li>Git Bash</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}

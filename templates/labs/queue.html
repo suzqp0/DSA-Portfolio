@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Deque · Zane{% endblock %}
+{% block content %}
+<h1>Queue and Deque</h1>
+
+<!-- Form to process Deque actions -->
+<form method="post" class="stack queue-form">
+  <label class="queue-label">Node Value
+    <input type="text" name="value" placeholder="Enter value (e.g., A, 10)" autocomplete="off">
+  </label>
+  <div class="button-group">
+    <button class="btn" type="submit" name="action" value="enqueue_front">Push Front</button>
+    <button class="btn" type="submit" name="action" value="enqueue_rear">Push Rear</button>
+    <button class="btn btn-danger" type="submit" name="action" value="dequeue_front">Pop Front</button>
+    <button class="btn btn-danger" type="submit" name="action" value="dequeue_rear">Pop Rear</button>
+  </div>
+</form>
+
+{% if message %}
+  <p class="queue-message">{{ message }}</p>
+{% endif %}
+
+<!-- Deque Visual Display -->
+<div class="card holo queue-card">
+  <h3>Current State:</h3>
+  
+  <div class="queue-display-box">
+    {% if queue_items %}
+      {% for item in queue_items %}
+        <div class="queue-node">
+          {{ item }}
+        </div>
+      {% endfor %}
+    {% else %}
+      <span class="queue-empty">Queue is currently empty</span>
+    {% endif %}
+  </div>
+</div>
+
+<p class="back-link"><a href="{{ url_for('main.works') }}">← Back to Works</a></p>
+{% endblock %}

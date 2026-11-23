@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Works · Zane{% endblock %}
+{% block content %}
+<section class="container">
+  <h1>Works</h1>
+  <p class="lead">Choose a tool below.</p>
+
+  <div class="works-grid">
+    <a class="btn works-btn" href="{{ url_for('labs.circle_tool') }}">Area of Circle</a>
+    <a class="btn works-btn" href="{{ url_for('labs.triangle_tool') }}">Area of Triangle</a>
+    <a class="btn works-btn" href="{{ url_for('labs.touppercase') }}">To Upper Case</a>
+    <a class="btn works-btn" href="{{ url_for('labs.linkedlist_tool') }}">Linked List</a>
+    <a class="btn works-btn" href="{{ url_for('labs.infixpostfix_tool') }}">Infix Postfix</a>
+    <a class="btn works-btn" href="{{ url_for('labs.queue_tool') }}">Queue</a>
+    <a class="btn works-btn" href="{{ url_for('labs.binary_tree_tool') }}">Binary Tree</a>
+    <a class="btn works-btn" href="{{ url_for('labs.sorting_tool') }}">Sorting</a>
+  </div>
+</section>
+{% endblock %}

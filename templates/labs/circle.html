@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Area of a Circle · AmaZANE!{% endblock %}
+{% block content %}
+<h1>Area of a Circle</h1>
+
+<form method="post" class="stack queue-form">
+  <label class="queue-label">Radius
+    <input type="number" step="any" name="radius" placeholder="Enter radius (e.g., 5)" autocomplete="off" required>
+  </label>
+  <div class="button-group">
+    <button class="btn" type="submit">Calculate Area</button>
+  </div>
+</form>
+
+{% if error %}
+  <p class="queue-message">{{ error }}</p>
+{% endif %}
+
+<div class="card holo queue-card">
+  <h3>Result:</h3>
+  <div class="queue-display-box">
+    {% if result is not none %}
+      <div class="queue-node">{{ result }}</div>
+    {% else %}
+      <span class="queue-empty">No calculation yet</span>
+    {% endif %}
+  </div>
+</div>
+
+<p class="back-link"><a href="{{ url_for('main.works') }}">← Back to Works</a></p>
+{% endblock %}

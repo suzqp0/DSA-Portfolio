@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Selection Sort · Zane{% endblock %}
+{% block content %}
+<h1>Selection Sort</h1>
+
+<!-- Form to process Selection Sort -->
+<form method="post" class="stack queue-form">
+  <label class="queue-label">Array Elements (comma-separated)
+    <input type="text" name="numbers" value="{{ raw_input or '' }}" placeholder="Enter numbers (e.g., 29, 10, 14, 37, 13)" autocomplete="off" required>
+  </label>
+  <div class="button-group">
+    <button class="btn" type="submit" name="action" value="sort">Sort Array</button>
+  </div>
+</form>
+
+{% if error %}
+  <p class="queue-message">{{ error }}</p>
+{% endif %}
+
+<!-- Sorted Array Visual Display -->
+<div class="card holo queue-card">
+  <h3>Sorted Result:</h3>
+
+  <div class="queue-display-box">
+    {% if sorted_list is not none %}
+      {% for item in sorted_list %}
+        <div class="queue-node">
+          {{ item }}
+        </div>
+      {% endfor %}
+    {% else %}
+      <span class="queue-empty">No sorted array yet</span>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Pass-by-Pass Breakdown -->
+{% if steps %}
+  <div class="card holo queue-card">
+    <h3>Pass Breakdown (Max-Element Selection):</h3>
+
+    <div class="queue-display-box">
+      {% for step in steps %}
+        <div class="queue-node">
+          Pass {{ loop.index }} (idx {{ step.pass_index }}): max {{ step.max_value }} → {{ step.array_state }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+<p class="back-link"><a href="{{ url_for('main.works') }}">← Back to Works</a></p>
+{% endblock %}
